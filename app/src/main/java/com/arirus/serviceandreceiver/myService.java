@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.os.SystemClock;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.NotificationManagerCompat;
+import android.util.Log;
 
 /**
  * Created by whd910421 on 16/10/20.
@@ -33,7 +34,7 @@ public class myService extends IntentService {
     @Override
     protected void onHandleIntent(Intent intent) {
         Intent i = new Intent(this, MainActivity.class);
-
+        Log.i(TAG,"XXXXXXXXX");
         PendingIntent pi = PendingIntent.getActivity(this, 0, i, 0);
 
         Notification notification = new NotificationCompat.Builder(this)
