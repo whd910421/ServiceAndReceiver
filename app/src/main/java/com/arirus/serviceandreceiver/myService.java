@@ -17,6 +17,7 @@ import android.util.Log;
 
 public class myService extends IntentService {
     private static final String TAG = "myService";
+    public static final String ACTION_SHOW_NOTI = "com.arirus.serviceandreceiver.SHOW_NOTI";
 
     public myService() {
         super(TAG);
@@ -33,20 +34,7 @@ public class myService extends IntentService {
 
     @Override
     protected void onHandleIntent(Intent intent) {
-        Intent i = new Intent(this, MainActivity.class);
-        Log.i(TAG,"XXXXXXXXX");
-        PendingIntent pi = PendingIntent.getActivity(this, 0, i, 0);
-
-        Notification notification = new NotificationCompat.Builder(this)
-                                            .setTicker("XXXX")
-                .setSmallIcon(android.R.drawable.ic_menu_report_image)
-                .setContentText("QQQQQQQQ")
-                .setContentTitle("WWWWWWWW")
-                .setContentIntent(pi)
-                .setAutoCancel(true)
-                .setVibrate(new long[]{4,5,6,8,9})
-                .build();
-
-        NotificationManagerCompat.from(this).notify(0,notification);
+//        sendBroadcast(new Intent(ACTION_SHOW_NOTI));
+        sendOrderedBroadcast(new Intent(ACTION_SHOW_NOTI),null);
     }
 }
