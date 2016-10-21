@@ -21,12 +21,12 @@ public class myService extends IntentService {
         super(TAG);
     }
 
-    public void setAlarmTime(Context context)
+    public static void setAlarmTime(Context context)
     {
         Intent intent = new Intent(context, myService.class);
         PendingIntent pendingIntent = PendingIntent.getService(context, 0, intent, 0);
 
-        AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
+        AlarmManager alarmManager = (AlarmManager) context.getSystemService(ALARM_SERVICE);
         alarmManager.setInexactRepeating(AlarmManager.ELAPSED_REALTIME_WAKEUP, SystemClock.elapsedRealtime(),1000*60,pendingIntent);
     }
 
