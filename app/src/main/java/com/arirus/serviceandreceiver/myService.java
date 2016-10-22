@@ -18,6 +18,7 @@ import android.util.Log;
 public class myService extends IntentService {
     private static final String TAG = "myService";
     public static final String ACTION_SHOW_NOTI = "com.arirus.serviceandreceiver.SHOW_NOTI";
+    public static final String PERM_PRIVATE = "com.arirus.serviceandreceiver.PRIVATE";
 
     public myService() {
         super(TAG);
@@ -35,6 +36,6 @@ public class myService extends IntentService {
     @Override
     protected void onHandleIntent(Intent intent) {
 //        sendBroadcast(new Intent(ACTION_SHOW_NOTI));
-        sendOrderedBroadcast(new Intent(ACTION_SHOW_NOTI),null);
+        sendOrderedBroadcast(new Intent(ACTION_SHOW_NOTI),PERM_PRIVATE );
     }
 }

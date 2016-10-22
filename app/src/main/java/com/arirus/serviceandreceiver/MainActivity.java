@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         IntentFilter filter = new IntentFilter(myService.ACTION_SHOW_NOTI);
-        registerReceiver(notiReceiver, filter);
+        registerReceiver(notiReceiver, filter,myService.PERM_PRIVATE, null );
     }
 
     @Override
