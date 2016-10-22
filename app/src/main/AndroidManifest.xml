@@ -19,12 +19,13 @@
         </activity>
         <service android:name=".myService"/>
         <receiver android:name=".bootReceiver">
-            <intent-filter >
+            <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED"/>
             </intent-filter>
         </receiver>
         <receiver android:name=".notiReceiver">
-            <intent-filter>
+            <intent-filter
+                android:priority="-999">
                 <action android:name="com.arirus.serviceandreceiver.SHOW_NOTI"/>
             </intent-filter>
         </receiver>

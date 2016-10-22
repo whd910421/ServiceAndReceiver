@@ -17,10 +17,10 @@ import android.util.Log;
 public class notiReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
-        if (getResultCode() == Activity.RESULT_CANCELED)
+        Log.i("notiReceiver","XXXXXXXXX");
+        if (getResultCode() != Activity.RESULT_CANCELED)
         {
             Intent i = new Intent(context, MainActivity.class);
-            Log.i("notiReceiver","XXXXXXXXX");
             PendingIntent pi = PendingIntent.getActivity(context, 0, i, 0);
 
             Notification notification = new NotificationCompat.Builder(context)
